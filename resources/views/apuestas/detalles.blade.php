@@ -1,4 +1,4 @@
-@extends('layout.plantilla')
+@extends('layout.navbar')
 @section('title', 'Detalles Apuesta')
 
 @section('container')

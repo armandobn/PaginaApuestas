@@ -1,4 +1,4 @@
-@extends('layout.plantilla')
+@extends('layout.navbar')
 @section('title', 'Crear Apesta')
 
 @section('container')

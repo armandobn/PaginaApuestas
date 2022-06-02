@@ -25,7 +25,7 @@ class ApuestasController extends Controller
     public function create()
     {
         //
-        return view('apuestas.showListas');
+        return view('apuestas.create');
     }
 
     /**

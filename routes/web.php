@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-  return view('inicio');
-});
+// Route::get('/', function(){
+//   return view('inicio');
+// });
 
-// Route::get('/',[SessionsController::class, 'index'])->name('usuario.index');
-// Route::post('/gg',[SessionsController::class, 'store'])->name('session.store');
+Route::get('/',[SessionsController::class, 'index'])->name('usuario.index');
+Route::post('/gg',[SessionsController::class, 'store'])->name('session.store');
 Route::get('/logout',[SessionsController::class, 'destroy'])->name('usuario.destroy');
 
 Route::get('/createUser',[RegisterController::class, 'create'])->name('usuario.create');

@@ -15,6 +15,10 @@
               <span class="fas fa-chess-rook fa-2x"></span>  INICIO </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{route('apuesta.create')}}">
+            <span class="fas fa-plus-circle fa-2x"></span> Crear Apuesta</a>
+        </li>
+      <li class="nav-item">
           <a class="nav-link" href="{{route('apuesta.tragaperras')}}">
               <span class="fas fa-dice-d20 fa-2x"></span> TRAGA PERRAS</a>
       </li>
