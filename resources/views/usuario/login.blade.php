@@ -7,7 +7,7 @@
             <div class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">Entra a tu Suerte</h5>
-                    <form action="{{route('usuario.store')}}" method="post">
+                    <form action="{{route('session.store')}}" method="post">
                       @csrf
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control" id="email" name="email"
