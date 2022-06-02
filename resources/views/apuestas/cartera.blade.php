@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col">
-            <h4>Saldo:00</h4>
+            <h4>Saldo: {{$cartera}}</h4>
         </div>
     </div>
 
@@ -39,11 +39,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  Saldo: 00
-                  <form>
+                  Saldo: {{$cartera}}
+                  <form action="{{route('apuesta.edit', auth()->user()->id)}}" method="POST">
+                      @csrf
+                      @method('put')
+                      
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Cantidad:</label>
-                      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <label for="cartera" class="form-label">Cantidad:</label>
+                      <input type="number" class="form-control"  name="cartera" id="cartera" aria-describedby="emailHelp">
                       
                     </div>
                     <button type="submit" class="btn btn-primary">Depositar</button>
@@ -51,7 +54,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -67,18 +69,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  Saldo: 00
-                  <form>
+                  Saldo: {{$cartera}}
+                  <form action="{{route('apuesta.restar', auth()->user()->id)}}" method="POST">
+                    @csrf
+                    @method('PUT')
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Cantidad:</label>
-                      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <label for="cartera" class="form-label">Cantidad:</label>
+                      <input type="number" class="form-control" name="cartera" id="cartera" aria-describedby="emailHelp">
                     </div>
                     <button type="submit" class="btn btn-primary">Retirar</button>
                   </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Aceptar</button>
                 </div>
             </div>
         </div>

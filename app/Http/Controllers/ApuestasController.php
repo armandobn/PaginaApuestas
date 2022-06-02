@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Apuestas;
+use App\Models\Equipos;
+use App\Models\Participantes;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ApuestasController extends Controller
@@ -14,9 +18,18 @@ class ApuestasController extends Controller
     public function index()
     {
         //
-        return view('apuestas.showListas');
+        $apuestas=Apuestas::all();
+
+        return view('apuestas.showListas',compact('apuestas'));
     }
 
+    public function crear(){
+        $equipos = new Equipos();
+        $equipos->categoria = "fotbol";
+        $equipos->nombre = "america";
+        $equipos->save();
+        return "s";
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +38,9 @@ class ApuestasController extends Controller
     public function create()
     {
         //
-        return view('apuestas.create');
+        $equipos=Equipos::all();
+        // return $equipo;
+        return view('apuestas.create',compact('equipos'));
     }
 
     /**
@@ -37,7 +52,13 @@ class ApuestasController extends Controller
     public function store(Request $request)
     {
         //
-        
+        $apuestas = new Apuestas();
+        $apuestas->equipoUno = $request->equipoUno;
+        $apuestas->equipoDos = $request->equipoDos;
+        $apuestas->categoria = $request->categoria;
+        $apuestas->save();
+        // return $apuestas;
+        return redirect()->intended('/create');
     }
 
     /**
@@ -46,10 +67,45 @@ class ApuestasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Apuestas $apuestas)
     {
         //
-        return view('apuestas.detalles');
+        
+        $allParticipantes = Participantes::all();
+        $participantes=array();
+        foreach($allParticipantes as $participante){
+            if($apuestas->id==$participante->idApuesta){
+                $participantes[]=$participante;
+            }
+            
+        }
+        // return $participantes;
+        return view('apuestas.detalles',compact('apuestas','participantes'));    
+        // return view('apuestas.detalles',compact('apuestas','participantes'));
+        
+    }
+
+    public function apostar(Request $request)
+    {
+        //
+        $allParticipantes= Participantes::all();
+        
+        foreach($allParticipantes as $participante){
+            if($request->nombre==$participante->nombre && $request->idApuesta==$participante->idApuesta ){
+
+                $parti = Participantes::find($participante->id);
+                $parti->apostado = ($request->apostado)+($participante->apostado);
+                $parti->save();
+                return  redirect()->intended('/show/'.$request->idApuesta);        
+            }
+        }
+
+        $participantes = new Participantes();
+        $participantes->idApuesta = $request->idApuesta;
+        $participantes->nombre = $request->nombre;
+        $participantes->apostado = $request->apostado;
+        $participantes->save();
+        return  redirect()->intended('/show/'.$participantes->idApuesta);
     }
 
     /**
@@ -59,21 +115,39 @@ class ApuestasController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function cartera()
+    public function cartera(User $user)
     {
         //
-        return view('apuestas.cartera');
+        $cartera=$user->cartera;
+
+        return view('apuestas.cartera',compact('cartera'));
     }
+     public function edit(User $user,Request $request)
+    {
+        //
+        $usu = User::find($user->id);
+        $usu->cartera = ($user->cartera)+($request->cartera);
+        $usu->save();
+        return  redirect()->intended('/cartera/'.$user->id);
+    }
+    
+    public function restar(User $user,Request $request)
+    {
+        //
+        // return $request;
+        $usu = User::find($user->id);
+        $usu->cartera = ($user->cartera)-($request->cartera);
+        $usu->save();
+        return  redirect()->intended('/cartera/'.$user->id);
+    }
+    
+
     public function tragaperras()
     {
         //
         return view('apuestas.tragaPerras');
     }
-    public function edit($id)
-    {
-        //
-    }
-
+   
     /**
      * Update the specified resource in storage.
      *

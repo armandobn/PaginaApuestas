@@ -19,15 +19,14 @@
             <span class="fas fa-plus-circle fa-2x"></span> Crear Apuesta</a>
         </li>
       <li class="nav-item">
-          <a class="nav-link" href="{{route('apuesta.tragaperras')}}">
-              <span class="fas fa-dice-d20 fa-2x"></span> TRAGA PERRAS</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{{route('apuesta.cartera')}}">
+          <a class="nav-link" href="{{route('apuesta.cartera',auth()->user()->id )}}">
               <span class="fas fa-wallet fa-2x"></span> Cartera</a><i class=""></i>
       </li>
       <li class="nav-item">
-        {{-- Welcome <b>{{ auth()->user()->name }}</b> --}}
+        <a class="nav-link active" aria-current="page" href="#">
+            <span class="fas fa-user-circle fa-2x"></span>
+            <b>{{ auth()->user()->name }}</b>
+        </a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="{{ route('usuario.destroy')}}">

@@ -14,61 +14,109 @@
   <div class="row">
     <div class="col">
       <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="name" name="name" placeholder="name">
+        <input type="text" class="form-control" id="name" name="name" value='{{ old('name') }}' placeholder="name">
         <label for="name">Nombre</label>
       </div>
     </div>
+    @error('name')
+        <br>
+        <small>{{$message}}</small>
+        <br>
+    @enderror
     <div class="col">
       <div class="form-floating">
-        <input type="text" class="form-control" id="apePaterno" name="apePaterno" placeholder="apePaterno">
+        <input type="text" class="form-control" id="apePaterno" name="apePaterno" value='{{ old('apePaterno') }}' placeholder="apePaterno">
         <label for="apePaterno">Apellido Paterno</label>
       </div>
     </div>
+    @error('apePaterno')
+        <br>
+        <small>{{$message}}</small>
+        <br>
+    @enderror
+
     <div class="col">
       <div class="form-floating">
-        <input type="text" class="form-control" id="apeMaterno" name="apeMaterno" placeholder="apeMaterno">
+        <input type="text" class="form-control" id="apeMaterno" name="apeMaterno" value='{{ old('apeMaterno') }}' placeholder="apeMaterno">
         <label for="apeMaterno">Apellido Materno</label>
       </div>
     </div>
   </div>
-  
+  @error('apeMaterno')
+        <br>
+        <small>{{$message}}</small>
+        <br>
+  @enderror
   <div class="row">
     <div class="col">
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+        <input type="email" class="form-control" id="email" name="email" value='{{ old('email') }}' placeholder="name@example.com">
         <label for="email">Correo</label>
       </div>
     </div>
+    @error('email')
+        <br>
+        <small>{{$message}}</small>
+        <br>
+    @enderror
     <div class="col">
       <div class="form-floating">
-        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Password">
+        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" value='{{ old('fechaNacimiento') }}' placeholder="Password">
         <label for="fechaNacimiento">Fecha de Nacimiento</label>
       </div>
     </div>
+    @error('fechaNacimiento')
+        <br>
+        <small>{{$message}}</small>
+        <br>
+    @enderror
     <div class="col">
       <div class="form-floating">
-        <input type="number" class="form-control" id="celular" name="celular" placeholder="Password">
+        <input type="number" class="form-control" id="celular" name="celular" value='{{ old('celular') }}' placeholder="Password">
         <label for="celular">Celular</label>
       </div>
     </div>
   </div>
-  
+  @error('celular')
+        <br>
+        <small>{{$message}}</small>
+        <br>
+    @enderror
   <div class="row">
     <div class="col">
       <div class="form-floating">
-        <input type="text" class="form-control" id="numeroTarjeta" name="numeroTarjeta" placeholder="Password">
+        <input type="text" class="form-control" id="numeroTarjeta" name="numeroTarjeta" value='{{ old('numeroTarjeta') }}' placeholder="Password">
         <label for="numeroTarjeta">Numero de Tarjeta</label>
       </div>
     </div>
+    @error('numeroTarjeta')
+        <br>
+        <small>{{$message}}</small>
+        <br>
+    @enderror
     <div class="col">
       <div class="form-floating">
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <input type="password" class="form-control" id="password" name="password" value='{{ old('password') }}' placeholder="Password">
         <label for="password">Password</label>
       </div>
     </div>
   </div>
-
-  <button type="submit" class="btn btn-primary mt-3">Registrar</button>
+  @error('password')
+  <br>
+  <small>{{$message}}</small>
+  <br>
+@enderror
+<div class="row">
+  <div class="col">
+    <button type="submit" class="btn btn-primary mt-3">Registrar</button>
+  </div>
+  <div class="col">
+    <a href="{{route('usuario.index')}}" class="btn btn-primary mt-3">Regresar</a>
+  </div>
+</div>
+  
+  
 </form>
+<br>
 
 @endsection

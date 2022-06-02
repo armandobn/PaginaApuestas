@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('fechaNacimiento');
             $table->string('celular');
             $table->string('numeroTarjeta');
+            $table->string('cartera')->default('0');
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

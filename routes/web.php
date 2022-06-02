@@ -27,8 +27,17 @@ Route::get('/logout',[SessionsController::class, 'destroy'])->name('usuario.dest
 Route::get('/createUser',[RegisterController::class, 'create'])->name('usuario.create');
 Route::post('/createUser',[RegisterController::class, 'store'])->name('usuario.store');
 
+Route::get('/crear',[ApuestasController::class, 'crear'])->name('apuesta.crear');
+
 Route::get('/index',[ApuestasController::class, 'index'])->name('apuesta.index');
 Route::get('/create',[ApuestasController::class, 'create'])->name('apuesta.create');
-Route::get('/show',[ApuestasController::class, 'show'])->name('apuesta.show');
-Route::get('/cartera',[ApuestasController::class, 'cartera'])->name('apuesta.cartera');
-Route::get('/tragaPerras',[ApuestasController::class, 'tragaperras'])->name('apuesta.tragaperras');
+Route::post('/store',[ApuestasController::class, 'store'])->name('apuesta.store');
+
+Route::get('/show/{apuestas}',[ApuestasController::class, 'show'])->name('apuesta.show');
+Route::post('/show/{apuestas}',[ApuestasController::class, 'apostar'])->name('apuesta.apostar');
+
+Route::get('/cartera/{user}/',[ApuestasController::class, 'cartera'])->name('apuesta.cartera');
+Route::put('/cartera/{user}/sumar',[ApuestasController::class, 'edit'])->name('apuesta.edit');
+Route::put('/cartera/{user}/restar',[ApuestasController::class, 'restar'])->name('apuesta.restar');
+
+
