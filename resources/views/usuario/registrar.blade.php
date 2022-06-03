@@ -1,13 +1,19 @@
 @extends('layout.plantilla')
 @section('title','Registrar Usuario')
 @section('container')
-
-<div class="row text-center">
-  <div class="col">
-    <h1>Registrar</h1>
+<head>
+  <link rel="stylesheet" href="{{asset('css/register.css')}}">
+</head>
+<body style="background-image: url(' {{asset ('img/fondo_registro2.jpg') }} '); content:fullscreen;">
+  <div class="container" id="container">
+    <h1>&bull;Registrar &bull;</h1>
   </div>
-</div>
-<hr class="bg-primary p-1">
+  {{-- <div class="row text-center">
+  <div class="col">
+    
+  </div>
+</div> --}}
+<div class="underline"></div>
 
 <form action="{{route('usuario.store')}}" method="POST">
   @csrf
@@ -25,7 +31,7 @@
     @enderror
     <div class="col">
       <div class="form-floating">
-        <input type="text" class="form-control" id="apePaterno" name="apePaterno" value='{{ old('apePaterno') }}' placeholder="apePaterno">
+        <input type="text" class="form-control" id="apePaterno" name="apePaterno"   value='{{ old('apePaterno') }}' placeholder="apePaterno">
         <label for="apePaterno">Apellido Paterno</label>
       </div>
     </div>
@@ -118,5 +124,7 @@
   
 </form>
 <br>
+</body>
+
 
 @endsection

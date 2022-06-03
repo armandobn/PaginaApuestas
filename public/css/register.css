@@ -8,6 +8,7 @@ html {
 
 body {
   background: #F2F3EB;
+  color: #ffffff;
 }
 
 button {
@@ -33,10 +34,11 @@ textarea {
 }
 
 #container {
-  border: solid 3px #474544;
+  border: solid 3px #eeebea;
   max-width: 768px;
   margin: 60px auto;
   position: relative;
+
 }
 
 form {
@@ -45,7 +47,7 @@ form {
 }
 
 h1 {
-  color: #474544;
+  color: #ffffff;
   font-size: 32px;
   font-weight: 700;
   letter-spacing: 7px;
@@ -54,7 +56,7 @@ h1 {
 }
 
 .underline {
-  border-bottom: solid 2px #474544;
+  border-bottom: solid 2px #fbf3f0;
   margin: -0.512em auto;
   width: 80px;
 }

@@ -2,7 +2,8 @@
 @section('title', 'Crear Apesta')
 
 @section('container')
-    <div class="container">
+<body style="background-image: url(' {{asset ('img/fondo_inicio.jpg') }} '); content:fullscreen;">
+        <div class="container">
 
         <div class="row">
             <div class="col text-center">
@@ -29,12 +30,12 @@
                     <form action="{{route('apuesta.store')}}" method="POST">
                         @csrf
                         <label for="categoria" class="form-label">Categoria</label>
-                        <input type="text" id="categoria" name='categoria' class="form-control" value='futbol'>
+                        <input type="text" id="categoria" name='categoria' class="form-control" value='futbol' >
                         <br>
                         <h3>Equipos que se enfrentaran</h3>
                         Equipo 1
-                        <select class="form-select" name="equipoUno" aria-label="Default select example">
-                            <option selected>Selecciona Equipo</option>
+                        <select class="form-select" name="equipoUno" required aria-label="Default select example">
+                            <option selected disabled >Selecciona Equipo</option> 
                             @foreach ($equipos as $equipo)
                                 @if ($equipo->categoria == 'futbol')
                                     <option value="{{ $equipo->nombre }}">{{ $equipo->nombre }}</option>
@@ -42,8 +43,8 @@
                             @endforeach
                         </select>
                         Equipo 2
-                        <select class="form-select" name="equipoDos" aria-label="Default select example">
-                            <option selected>Selecciona Equipo</option>
+                        <select class="form-select" name="equipoDos"  required aria-placeholder="selecciona Equipo" >
+                            <option selected disabled >Selecciona Equipo</option>
                             @foreach ($equipos as $equipo)
                                 @if ($equipo->categoria == 'futbol')
                                     <option value="{{ $equipo->nombre }}">{{ $equipo->nombre }}</option>
@@ -55,16 +56,16 @@
                         <button type="submit" class="btn btn-primary">Crear Apuesta</button>
                     </form>
                 </div>
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <form action="{{route('apuesta.store')}}" method="POST">
                         @csrf
                         <label for="categoria" class="form-label">Categoria</label>
-                        <input type="text" id="categoria" name='categoria' class="form-control" value='basquetbol'>
+                        <input type="text" id="categoria" name='categoria' class="form-control" value='basquetbol' >
                         <br>
                         <h3>Equipos que se enfrentaran</h3>
                         Equipo 1
                         <select class="form-select" name="equipoUno"  aria-label="Default select example">
-                            <option selected>Selecciona Equipo</option>
+                            <option selected disabled >Selecciona Equipo</option>
                             @foreach ($equipos as $equipo)
                                 @if ($equipo->categoria == 'basquetbol')
                                     <option value="{{ $equipo->nombre }}">{{ $equipo->nombre }}</option>
@@ -73,7 +74,7 @@
                         </select>
                         Equipo 2
                         <select class="form-select" name="equipoDos"  aria-label="Default select example">
-                            <option selected>Selecciona Equipo</option>
+                            <option selected disabled>Selecciona Equipo</option>
                             @foreach ($equipos as $equipo)
                                 @if ($equipo->categoria == 'basquetbol')
                                     <option value="{{ $equipo->nombre }}">{{ $equipo->nombre }}</option>
@@ -84,16 +85,16 @@
                         <button type="sumit" class="btn btn-primary">Crear Apuesta</button>
                     </form>
                 </div>
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                     <form action="{{route('apuesta.store')}}" method="POST">
                         @csrf
                         <label for="categoria" class="form-label">Categoria</label>
-                        <input type="text" id="categoria" name='categoria' class="form-control" value='box'>
+                        <input type="text" id="categoria" name='categoria' class="form-control" value='box' >
                         <br>
                         <h3>Equipos que se enfrentaran</h3>
                         Equipo 1
                         <select class="form-select" name="equipoUno" aria-label="Default select example">
-                            <option selected>Selecciona Equipo</option>
+                            <option selected disabled>Selecciona Equipo</option>
                             @foreach ($equipos as $equipo)
                                 @if ($equipo->categoria == 'box')
                                     <option value="{{ $equipo->nombre }}">{{ $equipo->nombre }}</option>
@@ -102,7 +103,7 @@
                         </select>
                         Equipo 2
                         <select class="form-select" name="equipoDos" aria-label="Default select example">
-                            <option selected>Selecciona Equipo</option>
+                            <option selected disabled>Selecciona Equipo</option>
                             @foreach ($equipos as $equipo)
                                 @if ($equipo->categoria == 'box')
                                     <option value="{{ $equipo->nombre }}">{{ $equipo->nombre }}</option>
@@ -117,12 +118,12 @@
                     <form action="{{route('apuesta.store')}}" method="POST">
                         @csrf
                         <label for="categoria" class="form-label">Categoria</label>
-                        <input type="text" id="categoria" name='categoria' class="form-control" value='futbol americano'>
+                        <input type="text" id="categoria" name='categoria' class="form-control" value='futbol americano' >
                         <br>
                         <h3>Equipos que se enfrentaran</h3>
                         Equipo 1
                         <select class="form-select" name="equipoUno" aria-label="Default select example">
-                            <option selected>Selecciona Equipo</option>
+                            <option selected disabled>Selecciona Equipo</option>
                             @foreach ($equipos as $equipo)
                                 @if ($equipo->categoria == 'futbol americano')
                                     <option value="{{ $equipo->nombre }}">{{ $equipo->nombre }}</option>
@@ -131,7 +132,7 @@
                         </select>
                         Equipo 2
                         <select class="form-select" name="equipoDos" aria-label="Default select example">
-                            <option selected>Selecciona Equipo</option>
+                            <option selected disabled>Selecciona Equipo</option>
                             @foreach ($equipos as $equipo)
                                 @if ($equipo->categoria == 'futbol americano')
                                     <option value="{{ $equipo->nombre }}">{{ $equipo->nombre }}</option>
@@ -147,4 +148,6 @@
 
 
     </div>
+</body>
+
 @endsection

@@ -1,7 +1,9 @@
 @extends('layout.navbar')
 @section('Cartera')
 @section('container')
-
+<body style="background-image: url(' {{asset ('img/fondo_inicio.jpg') }} '); content:fullscreen;">
+    
+</body>
     <div class="row">
         <div class="col text-center">
             <h1>Cartera</h1>
@@ -50,7 +52,7 @@
                       
                     <div class="mb-3">
                       <label for="cartera" class="form-label">Cantidad:</label>
-                      <input type="number" class="form-control"  name="cartera" id="cartera" aria-describedby="emailHelp">
+                      <input type="number" class="form-control rounded-pill"  name="cartera" id="cartera" required aria-describedby="emailHelp">
                       
                     </div>
                     <button type="submit" class="btn btn-primary">Depositar</button>
@@ -79,9 +81,9 @@
                     @method('PUT')
                     <div class="mb-3">
                       <label for="cartera" class="form-label">Cantidad:</label>
-                      <input type="number" class="form-control" name="cartera" id="cartera" aria-describedby="emailHelp">
+                      <input type="number" class="form-control rounded-pill" name="cartera" id="cartera"  required aria-describedby="emailHelp">
                     </div>
-                    <button type="submit" class="btn btn-primary">Retirar</button>
+                    <button type="submit" class="btn btn-primary rounded-pill">Retirar</button>
                   </form>
                 </div>
                 <div class="modal-footer">

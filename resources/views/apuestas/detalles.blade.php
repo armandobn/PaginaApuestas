@@ -2,8 +2,8 @@
 @section('title', 'Detalles Apuesta')
 
 @section('container')
-
-    <div class="container">
+<body style="background-image: url(' {{asset ('img/fondo_inicio.jpg') }} '); content:fullscreen;">
+        <div class="container">
         <div class="row">
             <div class="col text-center">
                 <h2>{{ $apuestas->equipoUno }} VS {{ $apuestas->equipoDos }}</h2>
@@ -17,11 +17,17 @@
 
                     <input type="text" name="idApuesta" hidden value="{{ $apuestas->id }}"  class="form-control">
                     <input type="text" name="nombre" hidden value="{{ auth()->user()->name }}"  class="form-control">
-
-                    <div class="mb-3">
-                        <label for="apostado" class="form-label">Ingresa cantidad a Apostar</label>
-                        <input type="number" class="form-control" name="apostado" id="apostado">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="mb-3">
+                                    <label for="apostado" class="form-label">Ingresa cantidad a Apostar</label>
+                                    <input type="number" class="form-control rounded-pill small" name="apostado" required id="apostado">
+                                </div> 
+                            </div>
+                        </div>
                     </div>
+                    
                     <button type="submit" class="btn btn-primary">Apostar</button>
                 </form>
             </div>
@@ -54,6 +60,8 @@
             </tbody>
         </table>
     </div>
+</body>
+
 
 
 @endsection
