@@ -11,8 +11,12 @@
 
     <div class="row">
         <div class="col">
+            <h3>Usuario: {{auth()->user()->name}}</h3>
+            <h3>Num. Tarjeta: {{auth()->user()->numeroTarjeta}}</h3>
+            
             <h4>Saldo: {{$cartera}}</h4>
         </div>
+        
     </div>
 
     <div class="row">
