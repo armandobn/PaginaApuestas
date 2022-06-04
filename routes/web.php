@@ -20,23 +20,23 @@ use Illuminate\Support\Facades\Route;
 //   return view('inicio');
 // });
 
-Route::get('/',[SessionsController::class, 'index'])->name('usuario.index');
-Route::post('/gg',[SessionsController::class, 'store'])->name('session.store');
+Route::get('/',[SessionsController::class, 'index'])->name('usuario.index')->middleware('guest');
+Route::post('/',[SessionsController::class, 'store'])->name('session.store');
 Route::get('/logout',[SessionsController::class, 'destroy'])->name('usuario.destroy');
 
-Route::get('/createUser',[RegisterController::class, 'create'])->name('usuario.create');
+Route::get('/createUser',[RegisterController::class, 'create'])->name('usuario.create')->middleware('guest');
 Route::post('/createUser',[RegisterController::class, 'store'])->name('usuario.store');
 
-Route::get('/crear',[ApuestasController::class, 'crear'])->name('apuesta.crear');
+// Route::get('/crear',[ApuestasController::class, 'crear'])->name('apuesta.crear');
 
-Route::get('/index',[ApuestasController::class, 'index'])->name('apuesta.index');
-Route::get('/create',[ApuestasController::class, 'create'])->name('apuesta.create');
+Route::get('/index',[ApuestasController::class, 'index'])->name('apuesta.index')->middleware('auth');
+Route::get('/create',[ApuestasController::class, 'create'])->name('apuesta.create')->middleware('auth');
 Route::post('/store',[ApuestasController::class, 'store'])->name('apuesta.store');
 
-Route::get('/show/{apuestas}',[ApuestasController::class, 'show'])->name('apuesta.show');
+Route::get('/show/{apuestas}',[ApuestasController::class, 'show'])->name('apuesta.show')->middleware('auth');
 Route::post('/show/{apuestas}',[ApuestasController::class, 'apostar'])->name('apuesta.apostar');
 
-Route::get('/cartera/{user}/',[ApuestasController::class, 'cartera'])->name('apuesta.cartera');
+Route::get('/cartera/{user}/',[ApuestasController::class, 'cartera'])->name('apuesta.cartera')->middleware('auth');
 Route::put('/cartera/{user}/sumar',[ApuestasController::class, 'edit'])->name('apuesta.edit');
 Route::put('/cartera/{user}/restar',[ApuestasController::class, 'restar'])->name('apuesta.restar');
 

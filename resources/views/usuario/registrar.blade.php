@@ -91,7 +91,7 @@
   <div class="row">
     <div class="col">
       <div class="form-floating">
-        <input type="text" class="form-control" id="numeroTarjeta" name="numeroTarjeta" value='{{ old('numeroTarjeta') }}' placeholder="Password">
+        <input type="number" class="form-control" id="numeroTarjeta" name="numeroTarjeta" value='{{ old('numeroTarjeta') }}' placeholder="Password">
         <label for="numeroTarjeta">Numero de Tarjeta</label>
       </div>
     </div>

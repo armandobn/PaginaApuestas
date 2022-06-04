@@ -18,10 +18,10 @@ class RegisterController extends Controller
             'name' => 'required',
             'apePaterno' => 'required',
             'apeMaterno' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:users',
             'fechaNacimiento' => 'required',
-            'celular' => 'required',
-            'numeroTarjeta' => 'required',
+            'celular' => 'required|numeric|digits:10',
+            'numeroTarjeta' => 'required|numeric|digits:16',
             'password' => 'required'
         ]);
 
