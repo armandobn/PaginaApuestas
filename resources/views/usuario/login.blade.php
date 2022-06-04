@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
 </head>
-<body class="my-login-page" style="background-image: url(' {{asset ('img/logo.png') }} '); content:fullscreen;">>
+<body class="my-login-page" style="background-image: url(' {{asset ('img/fondologin.jpg') }} '); content:fullscreen;">>
     <div class="row justify-content-md-center mt-5">
         <div class="col-md-5">
             <div class="card-wrape text-center">

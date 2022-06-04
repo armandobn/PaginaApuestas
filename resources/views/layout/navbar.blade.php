@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
       <div class="ocntainer">
           <div class="row">
-              <div class="col" >
+              <div class="col" style="background-image: url(' {{asset ('img/fondologin.jpg') }} ');">
 
               </div>
               <div class="col"></div>
@@ -28,6 +28,7 @@
           </div>
       </div>
       <ul class="navbar-nav">
+
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('apuesta.index')}}">
             <span class="fas fa-chess-rook fa-2x"></span>  INICIO </a>
