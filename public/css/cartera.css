@@ -6,24 +6,27 @@ html,body {
   background-size: cover;
   background-color: transparent;
 }
+/*?-- todo lo que es la pagina --!> */
 
 body.my-login-page {
-	background-color: #1a1a1bc3;
+	background-color: #39393bc3;
 	font-size: 14px;
     background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  box-shadow: 0 4px 8px rgba(243, 6, 6, 0.482);
+  box-shadow: 0 4px 8px rgba(32, 244, 8, 0.67);
+  color: white;
 }
+/*?-- todo donde va el logo --!> */
 
 .my-login-page .brand {
-	width: 120px;
-	height: 120px;
+	width: 140px;
+	height: 140px;
 	overflow: hidden;
 	border-radius: 50%;
 	margin: 20px auto;
-	box-shadow: 0 4px 8px rgba(243, 6, 6, 0.482);
+	box-shadow: 0 4px 8px rgba(30, 245, 6, 0.653);
 	position: relative;
 	z-index: 1;
     
@@ -31,13 +34,13 @@ body.my-login-page {
 
 .my-login-page .brand img {
 	width: 100%;
-    height: 80%;
+    height: 100%;
   
 }
 
 
 .my-login-page .card-wrapper {
-	width: 400px;
+	width: 300px;
     
 }
 
@@ -45,9 +48,10 @@ body.my-login-page {
 	border-color: transparent;
 	box-shadow: 0 4px 8px rgba(0,0,0,.05);
 }
+/*?-- fondo de la card--!> */
 
 .my-login-page .card.fat {
-	background-color: rgba(0, 0, 0, 0.422);
+	background-color: rgba(16, 17, 16, 0.72);
 	padding: 10px;
 }
 

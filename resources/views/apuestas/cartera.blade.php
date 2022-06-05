@@ -4,42 +4,51 @@
 <head>
     <link rel="stylesheet" href="{{asset('css/cartera.css')}}">
 </head>
-    <body style="background-image: url(' {{ asset('img/fondo_cartera.jpg') }} '); content:fullscreen;">
+    <body class="my-login-page" style="background-image: url(' {{ asset('img/fondo_cartera.jpg') }} '); content:fullscreen;">
+        <div class="card-wrape text-center">
+            <div class="brand" style="background-color: rgba(240, 255, 255, 0.515); aling-item:center">
+                <img src= "{{asset ('img/logo2.png')}}">
+            </div>
+            <div class="card fat">
+                <div class="card-body">
+                    <h2 class="card-title" style="color: aliceblue">Cartera</h2>
+                    
+                        {{--//? nombre del usuario--}}
+                        <div class="form-floating mb-3">
+                            <h3>Usuario: {{ auth()->user()->name }}</h3>    
+                        </div>
+                        {{--//? numero de tarjeta--}}
+                        <div class="form-floating" style="bord">
+                            <h3>Num. Tarjeta: {{ auth()->user()->numeroTarjeta }}</h3>
+                        </div>
+                        {{--//? saldo--}}
+                        <div class="form-floating" style="bord">
+                            <h3>Cartera/Saldo: {{ $cartera }}</h3>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        Depositar
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropRetirar">
+                                        Retirar
+                                    </button>
+                                </div>
 
+                            </div>
+                        </div>
+                        
+                    </form>
+
+                </div>   
+            </div>
+
+            
+        </div>
     </body>
-    <div class="row">
-        <div class="col text-center">
-            <h1>Cartera</h1>
-        </div>
-    </div>
-
-
-    <div class="row">
-        <div class="col">
-            <h3>Usuario: {{ auth()->user()->name }}</h3>
-            <h3>Num. Tarjeta: {{ auth()->user()->numeroTarjeta }}</h3>
-
-            <h4>Cartera/Saldo: {{ $cartera }}</h4>
-            @error('cartera')
-                        <br>
-                        <small>{{ $message }}</small>
-                        <br>
-                    @enderror
-        </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Depositar
-            </button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropRetirar">
-                Retirar
-            </button>
-        </div>
-    </div>
 
 
 
