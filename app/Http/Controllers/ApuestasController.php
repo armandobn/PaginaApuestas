@@ -96,7 +96,7 @@ class ApuestasController extends Controller
         
         $allParticipantes= Participantes::all();
         $request->validate([
-            'apostado' => 'required|numeric|min:1|max:100000|max:$request->cartera',
+            'apostado' => 'required|numeric|min:1|max:$request->cartera',
         
         ]);
         foreach($allParticipantes as $participante){
@@ -105,7 +105,7 @@ class ApuestasController extends Controller
                 $parti = Participantes::find($participante->id);
                 $parti->apostado = ($request->apostado)+($participante->apostado);
                 $parti->save();
-                return  redirect()->intended('/show/'.$request->idApuesta);        
+                return  redirect()->intended('/show'.'/'.$request->idApuesta);        
             }
         }
 

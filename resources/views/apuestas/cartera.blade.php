@@ -1,8 +1,10 @@
 @extends('layout.navbar')
 @section('Cartera')
 @section('container')
-
-    <body style="background-image: url(' {{ asset('img/fondo_inicio.jpg') }} '); content:fullscreen;">
+<head>
+    <link rel="stylesheet" href="{{asset('css/cartera.css')}}">
+</head>
+    <body style="background-image: url(' {{ asset('img/fondo_cartera.jpg') }} '); content:fullscreen;">
 
     </body>
     <div class="row">

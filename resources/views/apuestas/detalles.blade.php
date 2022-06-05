@@ -2,7 +2,7 @@
 @section('title', 'Detalles Apuesta')
 
 @section('container')
-<body style="background-image: url(' {{asset ('img/fondo_inicio.jpg') }} '); content:fullscreen;">
+<body style="background-image: url(' {{asset ('img/fondo_.jpg') }} '); content:fullscreen;">
         <div class="container">
         <div class="row">
             <div class="col text-center">

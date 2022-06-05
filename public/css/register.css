@@ -79,11 +79,11 @@ h1 {
 	width: 45%;
 }
 
-input[type='text'], [type='email'],[type='date']:focus, [type='number']:focus, [type='password']:focus, select, textarea {
+input[type='text'], [type='email'],[type='date'], [type='number'], [type='password'], select, textarea {
 	background: none;
   border: none;
 	border-bottom: solid 2px #474544;
-	color: #474544;
+	color: #cbc8c7;
 	font-size: 1.000em;
   font-weight: 400;
   letter-spacing: 1px;
@@ -144,7 +144,7 @@ textarea {
 }
 
 ::-webkit-input-placeholder {
-	color: #474544;
+	color: #999897;
 }
 
 :-moz-placeholder { 
@@ -220,7 +220,7 @@ textarea {
     width: 53px;
   }
   
-  input[type='text'], [type='email'],[type='date']:focus, [type='number']:focus, [type='password']:focus, select, textarea {
+  input[type='text'], [type='email'],[type='date'], [type='number'], [type='password'], select, textarea {
     font-size: 0.875em;
   }
 }
