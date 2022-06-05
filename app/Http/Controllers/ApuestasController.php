@@ -52,6 +52,11 @@ class ApuestasController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'equipoUno' => 'required',
+            'equipoDos' => 'required',
+        ]);
+
         $apuestas = new Apuestas();
         $apuestas->equipoUno = $request->equipoUno;
         $apuestas->equipoDos = $request->equipoDos;
@@ -88,8 +93,12 @@ class ApuestasController extends Controller
     public function apostar(Request $request)
     {
         //
-        $allParticipantes= Participantes::all();
         
+        $allParticipantes= Participantes::all();
+        $request->validate([
+            'apostado' => 'required|numeric|min:1|max:100000|max:$request->cartera',
+        
+        ]);
         foreach($allParticipantes as $participante){
             if($request->nombre==$participante->nombre && $request->idApuesta==$participante->idApuesta ){
 
@@ -125,10 +134,14 @@ class ApuestasController extends Controller
      public function edit(User $user,Request $request)
     {
         //
+        $request->validate([
+            'cartera' => 'required|numeric|min:1|max:100000',
+        ]);
+
         $usu = User::find($user->id);
         $usu->cartera = ($user->cartera)+($request->cartera);
         $usu->save();
-        return  redirect()->intended('/cartera/'.$user->id);
+        return  redirect()->intended('/cartera'.'/'.$user->id);
     }
     
     public function restar(User $user,Request $request)
@@ -136,18 +149,28 @@ class ApuestasController extends Controller
         //
         // return $request;
         $usu = User::find($user->id);
+        $saldo = $user->cartera;
+
+        $rules = [
+            'cartera' => 'required|numeric|min:1|max:100000|max:$saldo',
+        ];
+        $messages = [
+            'cartera' => 'Saldo Insuficiente',
+        ];
+        $this->validate($request, $rules, $messages);
+
+        // $request->validate([
+            
+        // ]);
+        
+        
         $usu->cartera = ($user->cartera)-($request->cartera);
         $usu->save();
-        return  redirect()->intended('/cartera/'.$user->id);
+        return  redirect()->intended('/cartera'.'/'.$user->id);
     }
     
 
-    public function tragaperras()
-    {
-        //
-        return view('apuestas.tragaPerras');
-    }
-   
+  
     /**
      * Update the specified resource in storage.
      *

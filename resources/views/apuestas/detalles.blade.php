@@ -17,6 +17,7 @@
 
                     <input type="text" name="idApuesta" hidden value="{{ $apuestas->id }}"  class="form-control">
                     <input type="text" name="nombre" hidden value="{{ auth()->user()->name }}"  class="form-control">
+                    <input type="text" name="cartera" hidden value="{{ auth()->user()->cartera }}"  class="form-control">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-3">
@@ -27,7 +28,11 @@
                             </div>
                         </div>
                     </div>
-                    
+                    @error('apostado')
+                        <br>
+                        <small>{{ $message }}</small>
+                        <br>
+                    @enderror
                     <button type="submit" class="btn btn-primary">Apostar</button>
                 </form>
             </div>

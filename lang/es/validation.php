@@ -77,7 +77,7 @@ return [
         'array'   => 'El campo :attribute debe contener :value o menos elementos.',
     ],
     'max'                  => [
-        'numeric' => 'El campo :attribute no debe ser mayor a :max.',
+        'numeric' => 'El campo :attribute no debe ser mayor Saldo Disponible',
         'file'    => 'El archivo :attribute no debe pesar más de :max kilobytes.',
         'string'  => 'El campo :attribute no debe contener más de :max caracteres.',
         'array'   => 'El campo :attribute no debe contener más de :max elementos.',
