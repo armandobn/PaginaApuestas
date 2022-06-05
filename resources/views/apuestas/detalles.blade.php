@@ -12,10 +12,12 @@
 
         <div class="row">
             <div class="col">
+                <h3>Cartera: {{ auth()->user()->cartera }}</h3>
                 <form action="route{{ 'apuesta.apostar' }}" method="POST">
                     @csrf
 
                     <input type="text" name="idApuesta" hidden value="{{ $apuestas->id }}"  class="form-control">
+                    <input type="text" name="id" hidden value="{{ auth()->user()->id }}"  class="form-control">
                     <input type="text" name="nombre" hidden value="{{ auth()->user()->name }}"  class="form-control">
                     <input type="text" name="cartera" hidden value="{{ auth()->user()->cartera }}"  class="form-control">
                     <div class="container">
