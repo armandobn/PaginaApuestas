@@ -94,11 +94,34 @@ class ApuestasController extends Controller
     {
         //
         
-        $allParticipantes= Participantes::all();
+        //return $request;
+        $usu = User::find($request->id);
+        // return $usu->cartera;
+        $saldo=(int)$usu->cartera;
+        if($request->apostado>$usu->cartera){
+            // return "insuficiente";
+            return back()->withErrors([
+                    'apostado'=>'El campo apostar no debe ser mayor Saldo Disponible'
+                ]);
+        }
+        // $rules = [
+        //     'cartera' => 'required|numeric|min:1|max:100000|max:$saldo',
+        // ];
+        // $messages = [
+        //     'cartera' => 'Saldo Insuficiente',
+        // ];
+        // $this->validate($request, $rules, $messages);
+
         $request->validate([
-            'apostado' => 'required|numeric|min:1|max:$request->cartera',
-        
+            'apostado' => 'required|numeric|min:1',
         ]);
+
+        $usu->cartera = ($request->cartera)-($request->apostado);
+        $usu->save();
+
+        
+        $allParticipantes= Participantes::all();
+        
         foreach($allParticipantes as $participante){
             if($request->nombre==$participante->nombre && $request->idApuesta==$participante->idApuesta ){
 
