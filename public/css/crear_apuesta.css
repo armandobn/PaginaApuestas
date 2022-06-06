@@ -6,94 +6,87 @@ html,body {
   background-size: cover;
   background-color: transparent;
 }
-/*?-- todo lo que es la pagina --!> */
 
-body.my-login-page {
-	background-color: #39393bc3;
+body.create-apuesta {
+	background-color: #1a1a1bc3;
+	color: white;
 	font-size: 14px;
     background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  box-shadow: 0 4px 8px rgba(32, 244, 8, 0.67);
-  color: white;
+  box-shadow: 0 4px 8px rgba(243, 6, 6, 0.482);
 }
-/*?-- todo donde va el logo --!> */
 
-.my-login-page .brand {
-	width: 140px;
-	height: 140px;
+.create-apuesta .brand {
+	width: 120px;
+	height: 120px;
 	overflow: hidden;
 	border-radius: 50%;
 	margin: 20px auto;
-	box-shadow: 0 4px 8px rgba(30, 245, 6, 0.653);
+	box-shadow: 0 4px 8px rgba(243, 6, 6, 0.482);
 	position: relative;
 	z-index: 1;
     
 }
 
-.my-login-page .brand img {
+.create-apuesta .brand img {
 	width: 100%;
-    height: 100%;
+    height: 80%;
   
 }
 
 
-.my-login-page .card-wrapper {
-	width: 300px;
+.create-apuesta .card-wrapper {
+	width: 400px;
     
 }
 
-.my-login-page .card {
+.create-apuesta .card {
 	border-color: transparent;
 	box-shadow: 0 4px 8px rgba(0,0,0,.05);
 }
-/*?-- fondo de la card--!> */
 
-.my-login-page .card.fat {
-	background-color: rgba(16, 17, 16, 0.72);
+.create-apuesta .card.fat {
+	background-color: rgba(0, 0, 0, 0.621);
 	padding: 10px;
 }
 
-.my-login-page .card .card-title {
+.create-apuesta .card .card-title {
 	margin-bottom: 30px;
 }
 
-.my-login-page .form-control {
+.create-apuesta .form-control {
 	border-width: 2.3px;
 }
 
-.my-login-page .form-group label {
+.create-apuesta .form-group label {
 	width: 100%;
 }
 
-.my-login-page .btn.btn-block {
+.create-apuesta .btn.btn-block {
 	padding: 12px 10px;
 }
 
-.my-login-page .footer {
+.create-apuesta .footer {
 	margin: 40px 0;
 	color: #888;
 	text-align: center;
 }
 
 @media screen and (max-width: 425px) {
-	.my-login-page .card-wrapper {
+	.create-apuesta .card-wrapper {
 		width: 90%;
 		margin: 0 auto;
 	}
 }
 
 @media screen and (max-width: 320px) {
-	.my-login-page .card.fat {
+	.create-apuesta .card.fat {
 		padding: 0;
 	}
 
-	.my-login-page .card.fat .card-body {
+	.create-apuesta .card.fat .card-body {
 		padding: 15px;
 	}
-}
-.modal-content{
-
-	background-color: rgba(15, 2, 255, 0.392);
 }

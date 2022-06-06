@@ -25,6 +25,13 @@
                         <div class="form-floating" style="bord">
                             <h3>Cartera/Saldo: {{ $cartera }}</h3>
                         </div>
+                        <div>
+                            @error('cartera')
+                        <br>
+                        <small>{{ $message }}</small>
+                        <br>
+                    @enderror
+                        </div>
                         <div class="container">
                             <div class="row">
                                 <div class="col">
