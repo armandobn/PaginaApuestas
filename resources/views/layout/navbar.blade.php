@@ -2,6 +2,7 @@
 @section('title', 'navbar')
 
 @section('navbar') 
+
 <nav class="navbar navbar-expand-lg " style="background-color: rgba(255, 0, 0, 0.372)">
   <div class="container-fluid" >
       <a class="navbar-brand" href="#"></a>
@@ -36,6 +37,10 @@
         <li class="nav-item">
             <a class="nav-link" href="{{route('apuesta.create')}}">
             <span class="fas fa-plus-circle fa-2x"></span> Crear Apuesta</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{route('apuesta.creacion')}}">
+            <span class="fas fa-plus-circle fa-2x"></span> Apuesta Creada</a>
         </li>
       <li class="nav-item">
           <a class="nav-link" href="{{route('apuesta.cartera',auth()->user()->id )}}">

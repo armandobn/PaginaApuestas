@@ -40,4 +40,4 @@ Route::get('/cartera/{user}/',[ApuestasController::class, 'cartera'])->name('apu
 Route::put('/cartera/{user}/sumar',[ApuestasController::class, 'edit'])->name('apuesta.edit');
 Route::put('/cartera/{user}/restar',[ApuestasController::class, 'restar'])->name('apuesta.restar');
 
-
+Route::get('/creacion',[ApuestasController::class, 'creacion'])->name('apuesta.creacion')->middleware('auth');

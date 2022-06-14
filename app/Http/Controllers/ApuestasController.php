@@ -56,16 +56,22 @@ class ApuestasController extends Controller
             'equipoUno' => 'required',
             'equipoDos' => 'required',
         ]);
-
+        // return $request;
         $apuestas = new Apuestas();
         $apuestas->equipoUno = $request->equipoUno;
         $apuestas->equipoDos = $request->equipoDos;
         $apuestas->categoria = $request->categoria;
+        $apuestas->user = $request->user;
         $apuestas->save();
         // return $apuestas;
         return redirect()->intended('/create');
     }
 
+    public function creacion(){
+        
+        $apuestas=Apuestas::all();
+        return view('apuestas.creacion',compact('apuestas'));
+    }
     /**
      * Display the specified resource.
      *

@@ -35,7 +35,7 @@
                                             aria-labelledby="v-pills-home-tab">
                                             <form action="{{ route('apuesta.store') }}" method="POST">
                                                 @csrf
-                    
+                                                <input type="text" name="user" hidden value="{{ auth()->user()->name }}"  class="form-control">
                                                 <input type="text" id="categoria" name='categoria' class="form-control" value='futbol' hidden>
                                                 <br>
                                                 <h3>Equipos que se enfrentaran</h3>
@@ -68,7 +68,7 @@
                                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                             <form action="{{ route('apuesta.store') }}" method="POST">
                                                 @csrf
-                    
+                                                <input type="text" name="user" hidden value="{{ auth()->user()->name }}"  class="form-control">
                                                 <input type="text" id="categoria" name='categoria' class="form-control" value='basquetbol'
                                                     hidden>
                                                 <br>
@@ -103,6 +103,7 @@
                                             aria-labelledby="v-pills-messages-tab">
                                             <form action="{{ route('apuesta.store') }}" method="POST">
                                                 @csrf
+                                                <input type="text" name="user" hidden value="{{ auth()->user()->name }}"  class="form-control">
                                                 <input type="text" id="categoria" name='categoria' class="form-control" value='box' hidden>
                                                 <br>
                                                 <h3>Equipos que se enfrentaran</h3>
@@ -135,7 +136,7 @@
                                             aria-labelledby="v-pills-settings-tab">
                                             <form action="{{ route('apuesta.store') }}" method="POST">
                                                 @csrf
-                    
+                                                <input type="text" name="user" hidden value="{{ auth()->user()->name }}"  class="form-control">
                                                 <input type="text" id="categoria" name='categoria' class="form-control"
                                                     value='futbol americano' hidden>
                                                 <br>
