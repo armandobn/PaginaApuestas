@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('equipoUno');
             $table->string('equipoDos');
             $table->string('user');
+            $table->string('estado');
             $table->timestamps();
         });
     }

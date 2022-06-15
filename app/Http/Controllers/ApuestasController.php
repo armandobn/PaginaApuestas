@@ -62,6 +62,7 @@ class ApuestasController extends Controller
         $apuestas->equipoDos = $request->equipoDos;
         $apuestas->categoria = $request->categoria;
         $apuestas->user = $request->user;
+        $apuestas->estado=1;
         $apuestas->save();
         // return $apuestas;
         return redirect()->intended('/create');
@@ -71,6 +72,31 @@ class ApuestasController extends Controller
         
         $apuestas=Apuestas::all();
         return view('apuestas.creacion',compact('apuestas'));
+    }
+
+    public function cerrarApuesta(Request $request){
+        $apuesta = Apuestas::find($request->idApuesta);
+        $apuesta->estado=0;
+        $apuesta->save();
+
+        $apuestas = Participantes::where('idApuesta','=',$request->idApuesta)->get();
+        $dinero=0;
+        $nParticipantes=0;
+        $reparto=0;
+        foreach($apuestas as $apuesta){
+            $dinero=$dinero+$apuesta->apostado;
+            $nParticipantes++;
+        }
+        $reparto=$nParticipantes/100;
+        foreach($apuestas as $apuesta){
+            $usuu = User::where('name','=',$apuesta->nombre)->get();
+            // return $usu[0]->cartera;
+            $usu = User::find($usuu[0]->id);
+            $usu->cartera=($usuu[0]->cartera)+($apuesta->apostado)+($apuesta->apostado)*$reparto;
+            $usu->save();
+        }
+        
+        return redirect()->intended('/creacion');
     }
     /**
      * Display the specified resource.

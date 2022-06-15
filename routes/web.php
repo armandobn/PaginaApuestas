@@ -41,3 +41,4 @@ Route::put('/cartera/{user}/sumar',[ApuestasController::class, 'edit'])->name('a
 Route::put('/cartera/{user}/restar',[ApuestasController::class, 'restar'])->name('apuesta.restar');
 
 Route::get('/creacion',[ApuestasController::class, 'creacion'])->name('apuesta.creacion')->middleware('auth');
+Route::post('/creacion',[ApuestasController::class, 'cerrarApuesta'])->name('apuesta.cerrarApuesta');

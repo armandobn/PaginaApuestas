@@ -3,32 +3,36 @@
 
 @section('container')
 
-<h1>Creacion</h1>
+    <h1>Creacion</h1>
+   
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($apuestas as $apuesta)
+                @if ($apuesta->user == auth()->user()->name)
+                  @if($apuesta->estado==1)
+                    <tr>
+                      <form action="{{route('apuesta.cerrarApuesta')}}" method="POST">
+                        @csrf
+                          <td class="rounded-pill">
+                            <input type="text" name="idApuesta" hidden value="{{ $apuesta->id }}"  class="form-control">
+                            {{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}
+                              <button type="sumit" class="btn btn-primary rounded-pill">Cerrar</button>
+                          </td>
+                      </form>
+                  </tr>
+                  @endif
+                   
+                @endif
+            @endforeach
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    
-  </tbody>
-</table>
-    
+
+        </tbody>
+    </table>
+
 @endsection

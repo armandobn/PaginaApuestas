@@ -55,8 +55,8 @@
                         @if ($apuesta->categoria == 'futbol')
                             <tr>
                                 <form action="{{route('apuesta.show',$apuesta->id)}}" method="GET">
-                                    <td class="rounded-pill">{{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}
-                                      
+                                    <td class="rounded-pill">
+                                      <strong>{{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}</strong>
                                         <button type="sumit" class="btn btn-primary rounded-pill">Apostar</button>
                                     </td>
                                 </form>
@@ -73,8 +73,7 @@
                         @if ($apuesta->categoria == 'basquetbol')
                             <tr>
                                 <form action="{{route('apuesta.show',$apuesta->id)}}" method="GET">
-                                    <td class="rounded-pill">{{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}
-                                      
+                                    <td class="rounded-pill"><strong>{{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}</strong>
                                         <button type="sumit" class="btn btn-primary rounded-pill">Apostar</button>
                                     </td>
                                 </form>
@@ -91,8 +90,7 @@
                         @if ($apuesta->categoria == 'box')
                             <tr>
                                 <form action="{{route('apuesta.show',$apuesta->id)}}" method="GET">
-                                    <td class="rounded-pill">{{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}
-                                      
+                                    <td class="rounded-pill"><strong>{{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}</strong>
                                         <button type="sumit" class="btn btn-primary rounded-pill">Apostar</button>
                                     </td>
                                 </form>
@@ -109,8 +107,7 @@
                         @if ($apuesta->categoria == 'futbol americano')
                             <tr>
                                 <form action="{{route('apuesta.show',$apuesta->id)}}" method="GET">
-                                    <td class="rounded-pill">{{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}
-                                      
+                                    <td class="rounded-pill"><strong>{{ $apuesta->equipoUno }} VS {{ $apuesta->equipoDos }}</strong>
                                         <button type="sumit" class="btn btn-primary rounded-pill">Apostar</button>
                                     </td>
                                 </form>
